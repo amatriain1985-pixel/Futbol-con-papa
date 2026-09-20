@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>Fútbol con papá ⚽</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --card:#fff; --text:#111827; --muted:#6b7280;
+    --accent:#111827; --green:#15803d; --border:#e5e7eb; --yellow:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .app{max-width:720px;margin:0 auto;padding:14px 14px 40px}
+  h1{font-size:28px;margin:6px 0 4px}
+  .subtitle{color:var(--muted);font-size:14px;margin-bottom:14px}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:sticky;top:0;background:rgba(244,245,247,.95);backdrop-filter:blur(8px);padding:8px 0 12px;z-index:5}
+  button.tab{border:1px solid var(--border);background:white;border-radius:14px;padding:12px;font-weight:800;font-size:16px}
+  button.tab.active{background:var(--accent);color:white;border-color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .session-title{font-size:22px;font-weight:900;margin-bottom:4px}
+  .session-meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+  .exercise{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border)}
+  .exercise:first-of-type{border-top:0}
+  .check{width:24px;height:24px;flex:0 0 24px;margin-top:2px;accent-color:var(--green)}
+  .name{font-weight:900;font-size:17px;line-height:1.25}
+  .p{display:inline-block;font-size:11px;font-weight:900;background:#fff3cd;border:1px solid #f0d36a;padding:2px 6px;border-radius:999px;margin-left:4px;vertical-align:2px}
+  .details{font-size:14px;line-height:1.4;color:#374151;margin-top:4px}
+  .details b{color:var(--text)}
+  .tag{display:inline-block;color:white;background:var(--green);border-radius:999px;padding:3px 8px;font-size:11px;font-weight:800;margin-top:6px}
+  .tips{background:#eef6ff;border-color:#cfe3ff}
+  .tips b{font-size:16px}
+  .week{display:grid;grid-template-columns:1fr;gap:8px}
+  .day{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:#fff}
+  .day strong{min-width:86px}
+  .legend{font-size:13px;color:var(--muted);margin-top:8px}
+  .reset{width:100%;border:1px solid var(--border);background:white;border-radius:12px;padding:11px;font-weight:700}
+  .small{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>⚽ Fútbol con papá</h1>
+  <div class="subtitle">7 años · Equipo: lunes y miércoles · Partido: sábado o domingo</div>
+
+  <div class="card">
+    <div class="session-title">🗓️ Semana</div>
+    <div class="week">
+      <div class="day"><strong>Lunes</strong><span>⚽ Entrenamiento equipo</span></div>
+      <div class="day"><strong>Martes</strong><span>👨‍👦 Sesión A · 25–30 min</span></div>
+      <div class="day"><strong>Miércoles</strong><span>⚽ Entrenamiento equipo</span></div>
+      <div class="day"><strong>Jueves</strong><span>🟢 Descanso / juego libre</span></div>
+      <div class="day"><strong>Viernes</strong><span>👨‍👦 Sesión B · 20–25 min</span></div>
+      <div class="day"><strong>Sábado</strong><span>⚽ Partido o descanso</span></div>
+      <div class="day"><strong>Domingo</strong><span>⚽ Partido o descanso</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-session="A">MARTES · SESIÓN A</button>
+    <button class="tab" data-session="B">VIERNES · SESIÓN B</button>
+  </div>
+
+  <div id="sessionA">
+    <div class="card">
+      <div class="session-title">🟢 Sesión A · Desafío del balón</div>
+      <div class="session-meta">25–30 minutos · Técnica, control, conducción y 1 contra 1</div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="A1">
+        <div><div class="name">🥷 El ladrón de balones</div>
+          <div class="details">Tú intentas tocarle el balón dentro de una zona pequeña. Él protege, gira y cambia de dirección.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="A2">
+        <div><div class="name">🧱 La pared <span class="p">PANCHICO</span></div>
+          <div class="details">10 pases derecha + 10 izquierda + 10 de primera. Después cambia los ángulos. <b>Reto:</b> máximo de pases seguidos.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="A3">
+        <div><div class="name">🚧 Conos <span class="p">PANCHICO</span></div>
+          <div class="details">Interior → exterior → ambos pies. Última vuelta: más rápido sin perder el control.</div>
+          <span class="tag">7 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="A4">
+        <div><div class="name">⚡ Cambio de ritmo <span class="p">PANCHICO</span></div>
+          <div class="details">Conducción suave → cono → aceleración fuerte → frenar → cambiar dirección.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="A5">
+        <div><div class="name">🥊 1 contra 1</div>
+          <div class="details">Tú defiendes al 50–60 %. Él intenta superar una línea. Después cambiais.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sessionB" style="display:none">
+    <div class="card">
+      <div class="session-title">🔴 Sesión B · 1 contra 1 + definición</div>
+      <div class="session-meta">20–25 minutos · Divertida y ligera antes del partido</div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="B1">
+        <div><div class="name">🥊 Papá defensor</div>
+          <div class="details">Tú defiendes y él intenta superarte. Cada superación = 1 punto.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="B2">
+        <div><div class="name">🎯 Definición real <span class="p">PANCHICO</span></div>
+          <div class="details">Pase → control → tú defiendes → supera → tiro. También conducción → cambio de dirección → tiro.</div>
+          <span class="tag">8–10 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="B3">
+        <div><div class="name">⚡ Cambio de ritmo + tiro <span class="p">PANCHICO</span></div>
+          <div class="details">Conducción suave → aceleración → cambio de dirección → finalización.</div>
+          <span class="tag">5 min</span></div>
+      </div>
+
+      <div class="exercise">
+        <input class="check" type="checkbox" data-key="B4">
+        <div><div class="name">🏆 Reto final</div>
+          <div class="details">Primero en llegar a 5 puntos. Gol = 1 · gol con izquierda = 2 · gol tras superar a papá = 3.</div>
+          <span class="tag">3–5 min</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card tips">
+    <b>⭐ Prioridad</b>
+    <div class="details">Mucho balón + decisiones + 1 contra 1 + finalizar. Evitar las pasadas de resistencia como ejercicio específico.</div>
+    <div class="legend">⭐ Los ejercicios marcados con “PANCHICO” proceden del vídeo.</div>
+  </div>
+
+  <div class="card">
+    <button class="reset" id="reset">↺ Reiniciar checks</button>
+    <div class="small" style="margin-top:8px">Los checks se guardan automáticamente en este navegador.</div>
+  </div>
+</div>
+
+<script>
+  const checks = document.querySelectorAll('.check');
+  checks.forEach(cb => {
+    const saved = localStorage.getItem('futbol_' + cb.dataset.key);
+    cb.checked = saved === '1';
+    cb.addEventListener('change', () => {
+      localStorage.setItem('futbol_' + cb.dataset.key, cb.checked ? '1' : '0');
+    });
+  });
+
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const a = btn.dataset.session === 'A';
+      document.getElementById('sessionA').style.display = a ? '' : 'none';
+      document.getElementById('sessionB').style.display = a ? 'none' : '';
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    checks.forEach(cb => {
+      cb.checked = false;
+      localStorage.removeItem('futbol_' + cb.dataset.key);
+    });
+  });
+</script>
+</body>
+</html>
